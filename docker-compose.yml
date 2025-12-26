@@ -1,0 +1,13 @@
+services:
+  astro-fragment:
+    build: 
+      context: ./astro-fragment
+      dockerfile: Dockerfile
+    ports:
+      - "8081:4321"
+  astro-shell:
+    build: 
+      context: ./astro-shell
+      dockerfile: Dockerfile
+    ports:
+      - "8080:4321"
