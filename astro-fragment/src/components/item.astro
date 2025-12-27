@@ -1,0 +1,9 @@
+---
+const { item } = Astro.props;
+---
+<div style="background-color: coral;">
+    <h1>{item.title}</h1>
+    <p>id: {item.id}</p>
+    <p>user id: {item.userId}</p>
+    <p>completed: {item.completed ? "Yes" : "No"}</p>
+</div>

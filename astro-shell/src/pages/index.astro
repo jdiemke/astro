@@ -1,4 +1,6 @@
 ---
+import BaseLayout from './../layouts/BaseLayout.astro';
+
 export const partial = false;
 
 const id = Astro.url.searchParams.get("id") || "";
@@ -7,15 +9,7 @@ const response = await fetch(
 	"http://astro-fragment:4321/?id=" + id,
 );
 ---
-<!Doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />		
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Astro Shell Example</title>
-	</head>
-	<body style="padding: 25px; background-color: #30a353; font-family: Arial, sans-serif;">
+<BaseLayout>
 		<h1>Shell Example Page</h1>
 		<Fragment set:html={response}></Fragment>
-	</body>
-</html>
+</BaseLayout>
