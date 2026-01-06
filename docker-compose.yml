@@ -5,6 +5,12 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8081:4321"
+  thymeleaf-fragment:
+    build: 
+      context: ./thymeleaf-fragment
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8080"
   astro-shell:
     build: 
       context: ./astro-shell

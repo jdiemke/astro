@@ -1,5 +1,9 @@
 # Astro ESI Demo
 
+## Prerequisites
+
+1. Install [Amazon Corretto 25](https://docs.aws.amazon.com/corretto/latest/corretto-25-ug/downloads-list.html)
+
 ## Run Demo
 
 Build an run using:
@@ -10,14 +14,15 @@ sudo ./rebuild-server-and-run.sh
 
 Open the follwoing URLs:
 
-| URL                          | Description                    |
-| ---------------------------- | ------------------------------ |
-| http://localhost:8080/?id=33 | Shell Server with Fragment ESI |
-| http://localhost:8081/?id=33 | Fragment Server (Widget)       |
+| URL                          | Description                        |
+| ---------------------------- | ---------------------------------- |
+| http://localhost:8080/?id=33 | Shell Server with Fragment ESI     |
+| http://localhost:8081/?id=33 | Fragment Server (Widget)           |
+| http://localhost:8082/       | Thymeleaf Fragment Server (Widget) |
 
 ## References
 
-* https://docs.astro.build/en/guides/integrations-guide/node/
-* https://astro.build/blog/astro-340/
-* https://docs.astro.build/en/recipes/docker/
-* https://docs.astro.build/
+- https://docs.astro.build/en/guides/integrations-guide/node/
+- https://astro.build/blog/astro-340/
+- https://docs.astro.build/en/recipes/docker/
+- https://docs.astro.build/

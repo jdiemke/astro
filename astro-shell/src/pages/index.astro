@@ -8,8 +8,13 @@ const id = Astro.url.searchParams.get("id") || "";
 const response = await fetch(
 	"http://astro-fragment:4321/?id=" + id,
 );
+
+const thymeleafResponse = await fetch(
+	"http://thymeleaf-fragment:8080/",
+);
 ---
 <BaseLayout>
 		<h1>Shell Example Page</h1>
-		<Fragment set:html={response}></Fragment>
+		{response && <Fragment set:html={response}></Fragment>}
+		<Fragment set:html={thymeleafResponse}></Fragment>
 </BaseLayout>
