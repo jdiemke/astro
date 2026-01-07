@@ -1,0 +1,64 @@
+---
+import EventImage from "./Eventimage.astro";
+import type {SliderEvent} from "../interfaces/sliderEvent.interface.ts";
+
+export const partial = true;
+
+interface Props {
+    events: Array<SliderEvent>;
+}
+const {events} = Astro.props as Props;
+
+function hasImageUrl(event: { imageUrl?: string | undefined }): event is { imageUrl: string } {
+    return typeof event.imageUrl === `string` && event.imageUrl.length > 0;
+}
+---
+<astro-slider>
+    <div class="flex-end">
+        <button class="swipe-left">←</button><button class="swipe-right">→</button>
+    </div>
+
+    <!-- Wrapper/Viewport (overflow hidden). Der Track darunter wird per translateX bewegt. -->
+    <div class="slider-viewport">
+        <div class="flex">
+            {events.map((event: SliderEvent) => (
+                    <div class="inline-card">
+                        <h3>{event.title}</h3>
+                        <p>Price: ${event.price}</p>
+                        <EventImage imageUrl={hasImageUrl(event) ? event.imageUrl : ""}></EventImage>
+                    </div>
+            ))}
+        </div>
+    </div>
+</astro-slider>
+
+<script>
+    import {Slider} from "../JS/swiper-buttons.ts";
+    customElements.define('astro-slider', Slider);
+</script>
+
+<style>
+    .slider-viewport {
+        overflow: hidden;
+        max-width: 400px;
+        padding: 10px;
+    }
+
+    .flex {
+        display: flex;
+        gap: 20px;
+        transform: translateX(0);
+    }
+
+    .inline-card {
+        flex: 0 0 auto;
+    }
+
+    .flex-end {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        padding: 10px;
+        max-width: 400px;
+    }
+</style>

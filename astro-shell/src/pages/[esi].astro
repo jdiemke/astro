@@ -1,0 +1,39 @@
+---
+import BaseLayout from './../layouts/BaseLayout.astro';
+
+export const partial = false;
+
+const pages = [
+    {
+        esi: undefined,
+        fetchUrl: getUrlWithId()
+    },
+    {
+        esi: "slider",
+        fetchUrl: "http://astro-fragment:4321/slider"
+    },
+    {
+        esi: "thymeleaf-slider",
+        fetchUrl: "http://thymeleaf-fragment:8080/"
+    }
+]
+function getUrlWithId() {
+    const id = Astro.url.searchParams.get("id") || "";
+    return "http://astro-fragment:4321/?id=" + id
+}
+
+
+const {esi} = Astro.params;
+
+const page = pages.find(p => p.esi === esi) || pages[0];
+
+const { fetchUrl } = page;
+
+const response = await fetch(
+    fetchUrl
+);
+---
+<BaseLayout>
+    <h1>Shell Example Page: {fetchUrl}, {esi}</h1>
+    {response && <Fragment set:html={response}></Fragment>}
+</BaseLayout>

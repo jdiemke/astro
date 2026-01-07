@@ -1,0 +1,13 @@
+---
+import Slider from "../components/Slider.astro";
+import type {SliderEvent} from "../interfaces/sliderEvent.interface.ts";
+const events: SliderEvent[] = [
+    {title: "Event 1", price: 100},
+    {title: "Event 2", price: 300, imageUrl: "/openair2.png"},
+    {title: "Event 3", price: 120},
+    {title: "Event 4", price: 200, imageUrl: "/openair2.png"},
+]
+---
+<Slider events={events}></Slider>
+<Slider events={events}></Slider>
+<Slider events={events}></Slider>

@@ -1,0 +1,20 @@
+---
+const {imageUrl} = Astro.props as {imageUrl: string};
+function getUrl(): string {
+    let url = "/openair.png"
+    if(imageUrl) {
+        url = imageUrl;
+    }
+    return url;
+}
+---
+<img src={getUrl()}>
+
+<style>
+    img {
+        height: auto;
+        width: auto;
+        max-width: 150px;
+        max-height: 150px;
+    }
+</style>
