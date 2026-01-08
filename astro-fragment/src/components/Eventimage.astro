@@ -1,5 +1,6 @@
 ---
 const {imageUrl} = Astro.props as {imageUrl: string};
+
 function getUrl(): string {
     let url = "/openair.png"
     if(imageUrl) {
@@ -8,10 +9,10 @@ function getUrl(): string {
     return url;
 }
 ---
-<img src={getUrl()}>
+<img class="slider-image" src={getUrl()}>
 
-<style>
-    img {
+<style is:inline>
+    .slider-image {
         height: auto;
         width: auto;
         max-width: 150px;

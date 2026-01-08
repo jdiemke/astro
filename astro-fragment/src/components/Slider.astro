@@ -37,7 +37,7 @@ function hasImageUrl(event: { imageUrl?: string | undefined }): event is { image
     customElements.define('astro-slider', Slider);
 </script>
 
-<style>
+<style is:inline>
     .slider-viewport {
         overflow: hidden;
         max-width: 400px;

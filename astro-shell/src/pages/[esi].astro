@@ -9,6 +9,10 @@ const pages = [
         fetchUrl: getUrlWithId()
     },
     {
+        esi: "index",
+        fetchUrl: getUrlWithId()
+    },
+    {
         esi: "slider",
         fetchUrl: "http://astro-fragment:4321/slider"
     },
@@ -25,13 +29,14 @@ function getUrlWithId() {
 
 const { esi } = Astro.params;
 
-const page = pages.find(p => p.esi === esi) || pages[0];
+const page = pages.find(p =>  p.esi && p.esi === esi) || pages[0];
 
 const { fetchUrl } = page;
 
 const response = await fetch(fetchUrl);
+const html = response.ok ? await response.text() : `<pre>Fetch fehlgeschlagen: ${response.status}</pre>`;
 ---
 <BaseLayout>
     <h1>Shell Example Page</h1>
-    {response && <Fragment set:html={response}></Fragment>}
+    <Fragment set:html={html}></Fragment>
 </BaseLayout>
