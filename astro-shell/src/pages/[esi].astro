@@ -17,11 +17,11 @@ const pages = [
         fetchUrl: "http://thymeleaf-fragment:8080/"
     }
 ]
+
 function getUrlWithId() {
     const id = Astro.url.searchParams.get("id") || "";
     return "http://astro-fragment:4321/?id=" + id
 }
-
 
 const {esi} = Astro.params;
 
@@ -34,6 +34,6 @@ const response = await fetch(
 );
 ---
 <BaseLayout>
-    <h1>Shell Example Page: {fetchUrl}, {esi}</h1>
+    <h1>Shell Example Page</h1>
     {response && <Fragment set:html={response}></Fragment>}
 </BaseLayout>

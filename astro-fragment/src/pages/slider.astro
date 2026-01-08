@@ -1,6 +1,9 @@
 ---
 import Slider from "../components/Slider.astro";
 import type {SliderEvent} from "../interfaces/sliderEvent.interface.ts";
+
+export const partial = true;
+
 const events: SliderEvent[] = [
     {title: "Event 1", price: 100},
     {title: "Event 2", price: 300, imageUrl: "/openair2.png"},
