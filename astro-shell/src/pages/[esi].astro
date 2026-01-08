@@ -23,15 +23,13 @@ function getUrlWithId() {
     return "http://astro-fragment:4321/?id=" + id
 }
 
-const {esi} = Astro.params;
+const { esi } = Astro.params;
 
 const page = pages.find(p => p.esi === esi) || pages[0];
 
 const { fetchUrl } = page;
 
-const response = await fetch(
-    fetchUrl
-);
+const response = await fetch(fetchUrl);
 ---
 <BaseLayout>
     <h1>Shell Example Page</h1>
