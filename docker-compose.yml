@@ -1,4 +1,11 @@
 services:
+  angular-fragment:
+    build:
+      context: ./angular-fragment
+      dockerfile: Dockerfile
+    ports:
+      - "8083:4000"
+
   astro-fragment:
     build: 
       context: ./astro-fragment

@@ -6,7 +6,7 @@ export const partial = false;
 const pages = [
     {
         esi: undefined,
-        fetchUrl: getUrlWithId()
+        fetchUrl: null
     },
     {
         esi: "index",
@@ -19,6 +19,10 @@ const pages = [
     {
         esi: "thymeleaf-slider",
         fetchUrl: "http://thymeleaf-fragment:8080/"
+    },
+    {
+        esi: "angular-slider",
+        fetchUrl: "http://angular-fragment:4000/fragment/slider"
     }
 ]
 
@@ -32,6 +36,13 @@ const { esi } = Astro.params;
 const page = pages.find(p =>  p.esi && p.esi === esi) || pages[0];
 
 const { fetchUrl } = page;
+if (fetchUrl === null) {
+    return new Response(null, {
+        status: 404,
+        statusText: 'Not found'
+    })
+}
+
 
 const response = await fetch(fetchUrl);
 const html = response.ok ? await response.text() : `<pre>Fetch fehlgeschlagen: ${response.status}</pre>`;
