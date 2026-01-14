@@ -1,6 +1,7 @@
 ---
-import Slider from "../components/Slider.astro";
+import SliderAstro from "../components/Slider.astro";
 import type {SliderEvent} from "../interfaces/sliderEvent.interface.ts";
+import { SliderComponent } from "../components/angular-components/angular-slider/slider";
 
 export const partial = true;
 
@@ -11,5 +12,8 @@ const events: SliderEvent[] = [
     {title: "Event 4", price: 200, imageUrl: "/openair2.png"},
 ]
 ---
-<Slider events={events}></Slider>
-<Slider events={events}></Slider>
+<SliderAstro events={events}></SliderAstro>
+<SliderAstro events={events}></SliderAstro>
+<div>---------</div>
+<!-- @ts-ignore -->
+<SliderComponent events={events} client:load></SliderComponent>
