@@ -8,11 +8,12 @@ import analogjsangular from '@analogjs/astro-angular';
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
-
   adapter: node({
     mode: 'standalone',
   }),
-
+  build: {
+    assetsPrefix: 'http://localhost:8081/'
+  },
   integrations: [analogjsangular(
       {
         vite: {

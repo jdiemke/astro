@@ -13,8 +13,12 @@ const pages = [
         fetchUrl: getUrlWithId()
     },
     {
-        esi: "slider",
-        fetchUrl: "http://astro-fragment:4321/slider"
+        esi: "astro-slider",
+        fetchUrl: "http://astro-fragment:4321/astro-slider"
+    },
+    {
+        esi: "astro-angular-slider",
+        fetchUrl: "http://astro-fragment:4321/angular-slider"
     },
     {
         esi: "thymeleaf-slider",
@@ -42,7 +46,6 @@ if (fetchUrl === null) {
         statusText: 'Not found'
     })
 }
-
 
 const response = await fetch(fetchUrl);
 const html = response.ok ? await response.text() : `<pre>Fetch fehlgeschlagen: ${response.status}</pre>`;

@@ -1,0 +1,16 @@
+---
+import type {SliderEvent} from "../interfaces/sliderEvent.interface.ts";
+import { SliderComponent } from "../components/angular-components/angular-slider/slider";
+
+export const partial = true;
+
+const events: SliderEvent[] = [
+    {title: "Event 1", price: 100},
+    {title: "Event 2", price: 300, imageUrl: "/openair2.png"},
+    {title: "Event 3", price: 120},
+    {title: "Event 4", price: 200, imageUrl: "/openair2.png"},
+]
+---
+
+<SliderComponent events={events} client:load></SliderComponent>
+<SliderComponent events={events} client:load></SliderComponent>

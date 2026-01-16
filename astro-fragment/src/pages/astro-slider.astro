@@ -1,7 +1,6 @@
 ---
 import SliderAstro from "../components/Slider.astro";
 import type {SliderEvent} from "../interfaces/sliderEvent.interface.ts";
-import { SliderComponent } from "../components/angular-components/angular-slider/slider";
 
 export const partial = true;
 
@@ -14,6 +13,3 @@ const events: SliderEvent[] = [
 ---
 <SliderAstro events={events}></SliderAstro>
 <SliderAstro events={events}></SliderAstro>
-<div>---------</div>
-<!-- @ts-ignore -->
-<SliderComponent events={events} client:load></SliderComponent>
