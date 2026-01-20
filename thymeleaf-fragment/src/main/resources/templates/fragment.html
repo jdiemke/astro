@@ -4,4 +4,7 @@
     <ol>
         <li th:each="member: ${team}" th:text="${member}"></li>
     </ol>
+    <div th:replace="~{slider}"></div>
+    <div th:replace="~{slider}"></div>
 </div>
+<script th:replace="~{swiper-button-script}"></script>

@@ -15,7 +15,10 @@ interface Item {
 let item: Item | null = null;
 
 if (id.length <= 0) {
-	return;
+    return new Response(null, {
+        status: 404,
+        statusText: 'Not found'
+    })
 }
 
 const response = await fetch(
