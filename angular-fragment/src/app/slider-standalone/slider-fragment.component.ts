@@ -6,7 +6,10 @@ import { SliderStandalone } from './slider-standalone';
   selector: 'app-slider-fragment',
   standalone: true,
   imports: [SliderStandalone],
-  template: `<app-slider-standalone [events]="events"></app-slider-standalone>`,
+  template: `
+    <app-slider-standalone [events]="events"></app-slider-standalone>
+    <app-slider-standalone [events]="events"></app-slider-standalone>
+  `,
 })
 export class SliderFragmentComponent {
 

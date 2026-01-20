@@ -32,6 +32,8 @@
             "styles": [
               "src/styles.scss"
             ],
+            "deployUrl": "http://localhost:8083/",
+            "baseHref": "/",
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
